@@ -1,0 +1,50 @@
+
+
+
+Begin Transaction: 
+||  ID   |   TIMESTAMP  | STATUS  ||
+||  1  |  1  |  ACTIVE  ||
+
+
+LS: 
+||  ID TRANSACTION  |   DADO  | LOCK TYPE  ||
+||  1  |  x  |  S  ||
+
+
+Begin Transaction: 
+||  ID   |   TIMESTAMP  | STATUS  ||
+||  1  |  1  |  ACTIVE  ||
+||  2  |  2  |  ACTIVE  ||
+
+
+Transação 2 abortada!
+
+
+LX: 
+||  ID TRANSACTION  |   DADO  | LOCK TYPE  ||
+||  1  |  x  |  S  ||
+
+
+LS: 
+||  ID TRANSACTION  |   DADO  | LOCK TYPE  ||
+||  1  |  x  |  S  ||
+||  2  |  y  |  S  ||
+
+
+LS: 
+||  ID TRANSACTION  |   DADO  | LOCK TYPE  ||
+||  1  |  y  |  S  ||
+||  2  |  y  |  S  ||
+Commit:
+||  ID   |   TIMESTAMP  | STATUS  ||
+||  1  |  1  |  COMMITTED  ||
+||  2  |  2  |  ACTIVE  ||
+
+
+LS: 
+||  ID TRANSACTION  |   DADO  | LOCK TYPE  ||
+||  2  |  z  |  S  ||
+Commit:
+||  ID   |   TIMESTAMP  | STATUS  ||
+||  1  |  1  |  COMMITTED  ||
+||  2  |  2  |  COMMITTED  ||
